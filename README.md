@@ -1,120 +1,170 @@
-# AI Receptionist: open source AI phone receptionist starter (Twilio + OpenAI Realtime)
+<p align="center">
+  <img src="assets/hero.png" alt="AI Receptionist by James Hill (The AI Guy): a self-hosted inbound calling starter" width="100%">
+</p>
 
-**AI Receptionist is an open source, self-hosted starter kit for building an inbound AI phone receptionist with Twilio and the OpenAI Realtime API.**
+<p align="center"><strong>Answer every call with an AI receptionist you host yourself. Twilio + OpenAI Realtime, set up from one YAML file.</strong></p>
 
-[![CI](https://github.com/jbrazy480/ai-receptionist/actions/workflows/ci.yml/badge.svg)](https://github.com/jbrazy480/ai-receptionist/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
-[![AI Guy resources](https://img.shields.io/badge/AI%20Guy-free%20resources-orange)](https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist)
+<p align="center">
+  <a href="https://github.com/jbrazy480/ai-receptionist/actions/workflows/ci.yml?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=ci"><img src="https://img.shields.io/badge/tests-50%20passing-7c7cf0?style=flat-square" alt="50 tests passing"></a>
+  <a href="https://github.com/jbrazy480/ai-receptionist/blob/main/LICENSE?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=license"><img src="https://img.shields.io/badge/License-MIT-7c7cf0?style=flat-square&amp;labelColor=111114" alt="License: MIT"></a>
+  <a href="https://www.python.org/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=python"><img src="https://img.shields.io/badge/Python-3.11%2B-7c7cf0?style=flat-square&amp;labelColor=111114" alt="Python 3.11+"></a>
+  <a href="https://github.com/jbrazy480/ai-receptionist/blob/main/receptionist/twilio_app.py?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=twilio"><img src="https://img.shields.io/badge/Voice-Twilio-7c7cf0?style=flat-square&amp;labelColor=111114" alt="Twilio"></a>
+  <a href="https://github.com/jbrazy480/ai-receptionist/blob/main/receptionist/realtime_bridge.py?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=realtime"><img src="https://img.shields.io/badge/AI-OpenAI_Realtime-7c7cf0?style=flat-square&amp;labelColor=111114" alt="OpenAI Realtime"></a>
+  <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=community"><img src="https://img.shields.io/badge/Community-Evolving_AI_Hub-7c7cf0?style=flat-square&amp;labelColor=111114" alt="Community: Evolving AI Hub"></a>
+  <a href="https://rizzdial.com/booked?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=done-for-you"><img src="https://img.shields.io/badge/Done_for_you-RizzDial-7c7cf0?style=flat-square&amp;labelColor=111114" alt="Done for you: RizzDial"></a>
+</p>
 
-![Offline demo of the AI receptionist text simulator](docs/demo.gif)
+<p align="center">
+  <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=community"><img src="https://img.shields.io/badge/-Join_the_free_Skool_community-7c7cf0?style=for-the-badge" alt="Join the free community"></a>
+  <a href="https://rizzdial.com/booked?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
+  <a href="https://aiguyofficial.com/resources?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
+</p>
+<p align="center">Join the Evolving AI Hub, James Hill's free Skool community. Build with the starter, get setup help on RizzDial, or explore free resources.</p>
 
-## What it does
+## See the conversation
 
-- Answers inbound calls to a Twilio number and bridges the caller's audio to OpenAI's Realtime speech-to-speech API and back.
-- Supports barge-in: if the caller starts talking while the assistant is speaking, playback is truncated and Twilio's buffer is cleared.
-- Builds its whole personality and knowledge from one `business.yaml` file: business name, greeting, voice, timezone, weekly hours, after-hours message, FAQs, departments, and where to send messages and bookings.
-- Gives the model real tools to act on: look up hours, answer FAQs, take a message, transfer to a department, book an appointment, end the call.
-- Detects after-hours automatically in the business's configured timezone and switches to message-taking instead of live transfers.
-- Logs every call (SID, masked caller number, start/end, tool calls) to `data/calls.jsonl`.
-- Ships an offline text simulator so you can try the whole flow in about 60 seconds with no API keys and no network access.
+<p align="center">
+  <img src="docs/demo.gif" alt="Offline text demo showing business hours, an FAQ answer, and an appointment request" width="860">
+</p>
+<p align="center">A scripted text conversation using the starter's business tools, offline with no API keys.</p>
 
-## Who this is for
+## What you can build
 
-Developers building or evaluating an AI phone receptionist for a local business, dental office, med spa, law firm intake line, or home services company, who want to see the real Twilio + OpenAI Realtime wiring before committing to a hosted platform.
+An inbound phone receptionist for a local business, with source code you can read, adapt, and host yourself.
+
+<table>
+  <tr>
+    <td width="33%"><strong>☎️ Live voice calls</strong><br>Bridge Twilio Media Streams to OpenAI Realtime through FastAPI.</td>
+    <td width="33%"><strong>🎙️ Caller interruptions</strong><br>Barge-in truncates the assistant response and clears Twilio's audio buffer.</td>
+    <td width="33%"><strong>⚙️ One business file</strong><br>Configure greetings, voice, hours, FAQs, and departments in YAML.</td>
+  </tr>
+  <tr>
+    <td><strong>🕒 After-hours handling</strong><br>Check the business timezone and refuse department transfers while closed.</td>
+    <td><strong>💬 FAQ lookup</strong><br>Match questions against configured FAQs using word overlap.</td>
+    <td><strong>📞 Department transfers</strong><br>Route an open-hours call to a configured number through Twilio.</td>
+  </tr>
+  <tr>
+    <td><strong>📝 Message capture</strong><br>Save a name, callback number, and reason locally, with an optional webhook.</td>
+    <td><strong>📅 Appointment requests</strong><br>Collect the requested time and service for a JSONL file or webhook.</td>
+    <td><strong>💻 Offline simulator</strong><br>Try shared tool logic with a rule-based text conversation and no model calls.</td>
+  </tr>
+</table>
 
 ## Quickstart
 
-### (a) 60-second offline demo, no keys
+### 60-second offline demo
+
+Start in the repository directory with Python 3.11+ installed. Dependency installation may require internet access; the demo with the example config runs offline.
 
 ```bash
-git clone https://github.com/jbrazy480/ai-receptionist.git
-cd ai-receptionist
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt
 python -m receptionist.simulate
 ```
 
-This runs a scripted conversation against a rule-based "brain" that calls the exact same tool implementations (FAQ lookup, hours, take a message, book an appointment, transfer in dry-run) as the live phone bridge. No `business.yaml` is required for the demo; it falls back to `business.example.yaml`. Add `--interactive` to type your own messages.
+No keys or `business.yaml` are required. The simulator falls back to [business.example.yaml](business.example.yaml), walks through hours, an FAQ, and an appointment request, then saves the request to `data/bookings.jsonl`.
 
-### (b) Real phone calls: Twilio + OpenAI + a tunnel
+To type your own conversation:
 
 ```bash
-cp business.example.yaml business.yaml   # edit for your business
-cp .env.example .env                     # fill in real keys
-pip install -r requirements.txt
-
-# expose your local server, e.g. with cloudflared or ngrok
-cloudflared tunnel --url http://localhost:5050
-# or: ngrok http 5050
-
-python -m receptionist.check             # verify config + env vars
-python -m receptionist.twilio_app        # start the server on $PORT (default 5050)
+python -m receptionist.simulate --interactive
 ```
 
-Then in the Twilio console, set your phone number's "A call comes in" webhook to `https://YOUR_TUNNEL_HOST/voice` (HTTP POST).
+The simulator uses the same tool implementations as live calls, with transfers and hangups in dry-run mode. It uses a rule-based brain, so it does not demonstrate voice quality or model reasoning. Keep webhook URLs unset for an offline run; configured webhooks can still send requests.
 
-## Configuration
+### Connect a real phone number
+
+You need a Twilio number that can receive voice calls, Twilio account credentials, an OpenAI API key with Realtime access, and a public HTTPS tunnel with WebSocket support.
+
+1. Prepare your business config and keys in the activated environment:
+
+   ```bash
+   cp business.example.yaml business.yaml
+   cp .env.example .env
+   pip install -r requirements.txt
+   ```
+
+   Edit `business.yaml` for your business. Fill in `OPENAI_API_KEY`, `TWILIO_ACCOUNT_SID`, and `TWILIO_AUTH_TOKEN` in your local `.env`. Keep credentials private.
+
+2. In another terminal, expose the server port. Keep the tunnel running:
+
+   ```bash
+   cloudflared tunnel --url http://localhost:5050
+   # Alternative: ngrok http 5050
+   ```
+
+3. In your original terminal, export your locally authored `.env` values, check configuration, and start the server:
+
+   ```bash
+   set -a
+   source .env
+   set +a
+   python -m receptionist.check
+   python -m receptionist.twilio_app
+   ```
+
+   The checker reads `.env` itself, but the server reads its process environment. The export step makes the keys available to both. The checker validates configuration and the presence of keys; it does not authenticate with providers.
+
+4. In the Twilio console, set the number's **A call comes in** webhook to `https://YOUR_TUNNEL_HOST/voice`, using **HTTP POST**. Visit `https://YOUR_TUNNEL_HOST/health` to check that the business config loads, then call your number.
+
+The stream hostname comes from the incoming `/voice` request. Preserve the public hostname and HTTPS scheme through your tunnel or proxy so webhook signature validation sees the same URL Twilio signed. `PUBLIC_HOST` does not override the stream URL in this starter.
+
+## How it works
+
+<p align="center">
+  <a href="assets/architecture.svg"><img src="assets/architecture.png" alt="Call flow from the caller through Twilio and FastAPI to OpenAI Realtime, with YAML configuration and business tools" width="100%"></a>
+</p>
+<p align="center"><a href="assets/architecture.svg">Open the SVG diagram</a></p>
+
+1. **Receive the call.** Twilio posts to `/voice`. FastAPI returns TwiML that connects a Media Stream to `/media-stream`.
+2. **Start the conversation.** The bridge loads business instructions and tools, opens an OpenAI Realtime session using `gpt-realtime`, and requests a greeting.
+3. **Exchange audio and act.** Caller audio goes to OpenAI; assistant audio goes back to Twilio. Function calls look up hours and FAQs, capture messages and appointment requests, or request a transfer or hangup.
+4. **Handle interruptions and handoffs.** Caller speech triggers audio truncation and buffer clearing. Pending transfers and hangups execute when the model emits `response.done`.
+
+Read the implementation in [twilio_app.py](receptionist/twilio_app.py), [realtime_bridge.py](receptionist/realtime_bridge.py), and [tools.py](receptionist/tools.py).
+
+## Configuration reference
 
 ### Environment variables
 
-| Variable | Required for | Description |
+| Variable | Default | Purpose |
 |---|---|---|
-| `OPENAI_API_KEY` | live calls | OpenAI API key with Realtime access |
-| `TWILIO_ACCOUNT_SID` | live calls, transfers | Twilio account SID |
-| `TWILIO_AUTH_TOKEN` | live calls, signature validation | Twilio auth token |
-| `VALIDATE_TWILIO_SIGNATURE` | optional | `"false"` disables webhook signature checks for local dev; default `"true"` |
-| `BUSINESS_CONFIG_PATH` | optional | Path to your config file; default `business.yaml` |
-| `PORT` | optional | Port for the FastAPI server; default `5050` |
-| `LOG_LEVEL` | optional | Python logging level; default `INFO` |
+| `OPENAI_API_KEY` | None | Required for live Realtime sessions. |
+| `TWILIO_ACCOUNT_SID` | None | Required by the live setup check; used for Twilio REST call control. |
+| `TWILIO_AUTH_TOKEN` | None | Required by the live setup check; used for REST call control and `/voice` signature validation. |
+| `VALIDATE_TWILIO_SIGNATURE` | `true` | Set to `false` only for local development to disable `/voice` signature checks. Checks are also skipped if no auth token is set. |
+| `BUSINESS_CONFIG_PATH` | `business.yaml` | Config path for the server and checker. The simulator uses `--config` instead. |
+| `PORT` | `5050` | Server port. Match this in your tunnel command. |
+| `LOG_LEVEL` | `INFO` | Python logging level. |
+| `PUBLIC_HOST` | None | Reported as recommended by the checker, but not read by the server. |
 
-### business.yaml
+### Business YAML
 
-Copy `business.example.yaml` to `business.yaml` and edit it. It is validated on startup with pydantic; invalid values (bad time formats, unknown timezones, malformed phone numbers, missing weekdays) produce a clear error message pointing at the exact field.
+Use [business.example.yaml](business.example.yaml) as the template. Pydantic validates the config when it is loaded and reports field errors for invalid time formats, timezones, department numbers, and weekday entries.
 
-Sections: `business` (name, timezone, greeting, after-hours message, voice), `hours` (per weekday, `null` for closed), `faqs` (question/answer pairs), `departments` (name + E.164 phone number for transfers), `booking` (optional webhook URL, else appointments are saved to `data/bookings.jsonl`), `messages` (JSONL file path and optional webhook URL).
+| Field | Required or default | What it controls |
+|---|---|---|
+| `business.name` | Required | Business name in the conversation instructions. |
+| `business.timezone` | Required | IANA timezone, such as `America/New_York`. |
+| `business.greeting` | Required | Opening greeting. |
+| `business.after_hours_message` | Required | Message included in the closed-hours instructions. |
+| `business.voice` | `alloy` | Voice sent to the Realtime session. |
+| `hours` | All seven lowercase weekdays required | Each day has `open` and `close` in quoted `HH:MM` format, or `null` for closed. Use same-day intervals; overnight hours are not supported. |
+| `faqs` | `[]` | Entries with `question` and `answer`. |
+| `departments` | `[]` | Entries with `name` and E.164 `phone_number`; name lookup is case-insensitive. |
+| `booking.webhook_url` | `null` | POST appointment requests here; otherwise write to `data/bookings.jsonl`. |
+| `messages.file_path` | `data/messages.jsonl` | Local message file. |
+| `messages.webhook_url` | `null` | Also POST messages here, in addition to the local file. |
 
-## Architecture
+### Records and delivery
 
-```mermaid
-sequenceDiagram
-    participant Caller
-    participant Twilio
-    participant Server as AI Receptionist (FastAPI)
-    participant OpenAI as OpenAI Realtime (gpt-realtime)
+| Record | Destination | Behavior |
+|---|---|---|
+| Messages | Configured local file, plus optional webhook | Contains caller-supplied name, callback number, and reason. |
+| Appointment requests | Booking webhook or `data/bookings.jsonl` | Captures a requested time and service; does not check calendar availability or confirm a reservation. |
+| Call lifecycle and tools | `data/calls.jsonl` when the bridge finishes | Includes call SID, start/end timestamps, and tool arguments/results. |
 
-    Caller->>Twilio: Dials the business number
-    Twilio->>Server: POST /voice
-    Server-->>Twilio: TwiML <Connect><Stream>
-    Twilio->>Server: WebSocket /media-stream (mu-law 8k audio)
-    Server->>OpenAI: session.update (instructions, tools, audio format)
-    loop live call
-        Twilio->>Server: input_audio_buffer.append
-        Server->>OpenAI: input_audio_buffer.append
-        OpenAI-->>Server: response.output_audio.delta
-        Server-->>Twilio: media (audio playback)
-        OpenAI-->>Server: response.function_call_arguments.done
-        Server->>Server: run tool (hours, FAQ, message, transfer, booking)
-        Server->>OpenAI: conversation.item.create (function_call_output)
-    end
-    OpenAI-->>Server: input_audio_buffer.speech_started (barge-in)
-    Server->>OpenAI: conversation.item.truncate
-    Server-->>Twilio: clear
-```
-
-See [docs/architecture.svg](docs/architecture.svg) for a static diagram.
-
-## How does the AI receptionist transfer a call?
-
-The `transfer_call` tool looks up the department in `business.yaml`, checks that the business is currently open (using the configured timezone), and if so returns a short spoken handoff line. Once the assistant finishes speaking that line, the server uses the Twilio REST API to update the live call with a `<Dial>` to the department's phone number. Outside business hours, the tool refuses to transfer and the assistant offers to take a message instead.
-
-## How does the AI receptionist handle after-hours calls?
-
-`receptionist.hours.is_after_hours` compares the current time, converted into the business's configured IANA timezone, against that weekday's configured hours. When closed, the system prompt instructs the model to use the after-hours message and take a message rather than offering a transfer, and the `transfer_call` tool independently refuses to transfer as a safety net.
-
-## How much does it cost to run?
-
-Costs come from three places you control directly: your Twilio phone number and per-minute call charges (see [Twilio Voice pricing](https://www.twilio.com/en-us/voice/pricing)), OpenAI Realtime API usage (see [OpenAI pricing](https://openai.com/api/pricing/)), and wherever you host this server. This repo does not add its own fees and this README does not estimate a total, since it depends entirely on your call volume and provider rates.
+The call logger masks a caller number when supplied, but the default `/voice` route does not pass that number as a stream custom parameter, so it is normally logged as `unknown`. Caller-provided numbers in tool arguments and message or booking records are not masked. Webhook delivery has no retry queue or confirmed-delivery guarantee.
 
 ## Testing
 
@@ -123,52 +173,76 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-Tests run fully offline with no API keys and no network calls. They cover:
+Verified on 2026-09-26 with Python 3.13.5: **50 passed**, with one Starlette test-client deprecation warning. The offline demo also completed successfully. Live provider calls were not tested in this documentation pass.
 
-- `business.yaml` validation (pydantic error messages for bad hours, timezones, phone numbers)
-- business hours and after-hours logic across timezones and weekdays
-- each realtime tool function (hours, FAQ lookup, take message, transfer, booking, end call)
-- TwiML generation for `POST /voice`
-- Twilio webhook signature validation, both enabled and disabled
-- the realtime bridge's event handling, using a fake OpenAI websocket and a fake Twilio websocket: audio delta forwarding, barge-in truncate/clear, and the function-call round trip
-- the offline text simulator end to end
+The suite covers YAML validation, timezone-aware business hours, all six tools, TwiML responses, webhook signatures, audio forwarding, barge-in, function-call handling, transfers, hangups, and the simulator. Tests use local fixtures and fake clients without live API calls. CI runs Python 3.11 and 3.12. See [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
 
 ## Compliance note (not legal advice)
 
-Calling real people with an AI voice is regulated. In the United States, the FCC has ruled that AI-generated voices used in robocalls fall under the Telephone Consumer Protection Act's (TCPA) "artificial or prerecorded voice" restrictions, which generally require prior consent before calling. This starter only handles inbound calls that the caller initiated, but if you extend it to place outbound calls, review TCPA requirements and applicable state law with counsel before doing so. This is general information, not legal advice.
+Calling real people with an AI voice is regulated. In the United States, the FCC has ruled that AI-generated voices used in robocalls fall under the TCPA's artificial or prerecorded voice restrictions, generally requiring prior express consent unless an exemption applies. See the [FCC declaratory ruling](https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf).
 
-## Comparison
+This starter only handles inbound calls that the caller initiated. If you extend it to place outbound calls, review TCPA requirements and applicable state law with counsel before doing so. This is general information, not legal advice.
 
-| | This starter | Building from scratch | A hosted platform |
-|---|---|---|---|
-| Setup time | Minutes to an offline demo, hours to a live call | Weeks | Minutes |
-| Twilio + Realtime wiring | Included, MIT licensed | You write it | Managed for you |
-| Hosting | You run it | You run it | Managed for you |
-| Customization | Full source access | Full source access | Limited to platform features |
-| Multi-number / CRM / dialer | Not included | You build it | Varies by platform |
+## Want this done for you?
+
+For **agencies, local businesses, and sales teams** that want help setting up AI calling, book a call and the team will set up AI calling for your business or agency on **RizzDial, a commercial platform**.
+
+RizzDial offers AI voice agents and AI calling for agencies and GoHighLevel users, with a built-in CRM and GoHighLevel, HubSpot, and Salesforce integrations. These are commercial platform capabilities, separate from this MIT starter.
+
+[Explore RizzDial's AI calling API](https://rizzdial.com/ai-calling-api?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=product) · [Get it done for you](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=done-for-you)
 
 ## FAQ
 
-**Do I need an OpenAI Realtime-enabled account?** Yes, live calls require an OpenAI API key with access to the Realtime API.
+### Is this free?
 
-**Can I try this without a Twilio account?** Yes. `python -m receptionist.simulate` runs the full conversation logic offline with no keys.
+Yes. This starter is free to use and modify under the MIT license. The example text demo needs no paid API account. Live calls incur your Twilio, OpenAI, and hosting costs; this repository adds no usage fee.
 
-**Does barge-in actually work?** Yes. When OpenAI reports `input_audio_buffer.speech_started`, the server sends `conversation.item.truncate` for the in-progress assistant item and clears Twilio's playback buffer, so the caller can interrupt naturally.
+### Is RizzDial open source?
 
-**Where do messages and bookings go?** To JSONL files under `data/` by default (`data/messages.jsonl`, `data/bookings.jsonl`), or to a webhook URL if you configure one in `business.yaml`.
+No. RizzDial is a commercial platform. This AI Receptionist starter is MIT licensed, and that license applies only to the starter.
 
-**Can I add more tools or departments?** Yes. Departments and FAQs are just list entries in `business.yaml`. Additional tools go in `receptionist/tools.py` and `receptionist/realtime_bridge.py`.
+### Can I try it without Twilio or OpenAI keys?
 
-**Is my caller data sent anywhere besides OpenAI and Twilio?** Only if you configure a booking or message webhook URL yourself. Otherwise everything stays local in `data/`.
+Yes. Run `python -m receptionist.simulate` after installing dependencies. With the example config, it runs offline and saves an appointment request locally. Add `--interactive` to type your own messages.
 
-## Going further
+### What happens after business hours?
 
-Free resources, templates, and community: https://aiguyofficial.com/resources?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist
+The live prompt uses your configured timezone and hours to instruct the assistant to use the after-hours message and offer message-taking. The transfer tool independently checks the hours and refuses a transfer while closed.
 
-When you need this across many client numbers with a dialer and CRM built in, RizzDial is a commercial platform for that: https://rizzdial.com/ai-calling-api?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist
+### Can it transfer callers to a person?
+
+Yes. Add a department and its E.164 phone number to `business.yaml`. During open hours, the transfer tool schedules a Twilio REST update with a `<Dial>` to that number when the model response completes.
+
+### Does it confirm calendar bookings?
+
+No. It captures an appointment request and writes it to a local JSONL file or sends it to your booking webhook. Calendar availability checks and confirmation workflows require your own integration.
+
+### Where does caller data go?
+
+Live audio passes through Twilio and OpenAI. Messages and appointment requests follow the storage and webhook settings above, and call logs can contain tool arguments with personal information. Review those destinations and file access before handling real callers.
+
+### How do I get help?
+
+[Join the Evolving AI Hub, James Hill's free Skool community](https://www.skool.com/evolving-ai-hub?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=community). For a reproducible code issue, follow the reporting steps in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+<p align="center"><strong>Build it yourself. Get help setting it up. Keep learning.</strong></p>
+<p align="center">
+  <a href="https://www.skool.com/evolving-ai-hub?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=community"><img src="https://img.shields.io/badge/-Join_the_free_Skool_community-7c7cf0?style=for-the-badge" alt="Join the free community"></a>
+  <a href="https://rizzdial.com/booked?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
+  <a href="https://aiguyofficial.com/resources?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
+</p>
 
 ## License
 
-MIT License (this starter repo only, see [LICENSE](LICENSE)).
+[MIT](LICENSE), for this starter only. RizzDial is a commercial platform.
 
-Maintained by James Hill (The AI Guy).
+Built by [James Hill (The AI Guy)](https://aiguyofficial.com?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=author).
+
+**More free starters**
+
+- [AI Cold Calling Agent](https://github.com/jbrazy480/ai-cold-calling-agent)
+- [Voice Agent Prompts](https://github.com/jbrazy480/voice-agent-prompts)
+- [TCPA Compliance Checklist](https://github.com/jbrazy480/tcpa-compliance-checklist)
+- [Phone MCP Server](https://github.com/jbrazy480/phone-mcp-server)
