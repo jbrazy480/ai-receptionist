@@ -1,0 +1,58 @@
+<svg viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="480" fill="#ffffff"/>
+
+  <!-- Caller -->
+  <rect x="20" y="170" width="150" height="80" rx="8" fill="#eef2ff" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="95" y="205" text-anchor="middle" font-size="14" fill="#1f2937" font-weight="bold">Caller</text>
+  <text x="95" y="224" text-anchor="middle" font-size="12" fill="#1f2937">phone call (PSTN)</text>
+
+  <!-- Twilio -->
+  <rect x="230" y="160" width="190" height="100" rx="8" fill="#eef2ff" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="325" y="195" text-anchor="middle" font-size="14" fill="#1f2937" font-weight="bold">Twilio</text>
+  <text x="325" y="213" text-anchor="middle" font-size="12" fill="#1f2937">POST /voice (TwiML)</text>
+  <text x="325" y="230" text-anchor="middle" font-size="12" fill="#1f2937">Media Streams (mu-law 8k)</text>
+
+  <!-- Server -->
+  <rect x="480" y="130" width="230" height="160" rx="8" fill="#ecfdf5" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="595" y="160" text-anchor="middle" font-size="14" fill="#1f2937" font-weight="bold">AI Receptionist Server</text>
+  <text x="595" y="178" text-anchor="middle" font-size="12" fill="#1f2937">FastAPI</text>
+  <text x="595" y="200" text-anchor="middle" font-size="12" fill="#1f2937">/voice  /health</text>
+  <text x="595" y="218" text-anchor="middle" font-size="12" fill="#1f2937">/media-stream (WebSocket)</text>
+  <text x="595" y="236" text-anchor="middle" font-size="12" fill="#1f2937">MediaBridge + function tools</text>
+  <text x="595" y="254" text-anchor="middle" font-size="12" fill="#1f2937">barge-in: truncate + clear</text>
+  <text x="595" y="272" text-anchor="middle" font-size="12" fill="#1f2937">after-hours detection</text>
+
+  <!-- OpenAI -->
+  <rect x="770" y="160" width="170" height="100" rx="8" fill="#eef2ff" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="855" y="195" text-anchor="middle" font-size="14" fill="#1f2937" font-weight="bold">OpenAI Realtime</text>
+  <text x="855" y="213" text-anchor="middle" font-size="12" fill="#1f2937">gpt-realtime (GA)</text>
+  <text x="855" y="230" text-anchor="middle" font-size="12" fill="#1f2937">speech to speech</text>
+
+  <!-- Config -->
+  <rect x="480" y="350" width="230" height="70" rx="8" fill="#fff7ed" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="595" y="378" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="bold">business.yaml</text>
+  <text x="595" y="396" text-anchor="middle" font-size="12" fill="#1f2937">hours, FAQs, departments</text>
+  <text x="595" y="411" text-anchor="middle" font-size="12" fill="#1f2937">booking + message webhooks</text>
+
+  <!-- Data -->
+  <rect x="20" y="350" width="230" height="70" rx="8" fill="#fff7ed" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="135" y="378" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="bold">data/*.jsonl</text>
+  <text x="135" y="396" text-anchor="middle" font-size="12" fill="#1f2937">calls, messages, bookings</text>
+  <text x="135" y="411" text-anchor="middle" font-size="12" fill="#1f2937">plus optional webhooks</text>
+
+  <!-- Arrows -->
+  <line x1="170" y1="210" x2="228" y2="210" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="210" x2="478" y2="210" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="710" y1="210" x2="768" y2="210" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <line x1="595" y1="350" x2="595" y2="292" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="380" x2="252" y2="380" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="480" y="30" text-anchor="middle" font-size="16" fill="#1f2937" font-weight="bold">AI Receptionist: call flow</text>
+</svg>

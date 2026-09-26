@@ -1,0 +1,15 @@
+services:
+  receptionist:
+    build: .
+    ports:
+      - "5050:5050"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - VALIDATE_TWILIO_SIGNATURE=${VALIDATE_TWILIO_SIGNATURE:-true}
+      - BUSINESS_CONFIG_PATH=/app/business.yaml
+      - PORT=5050
+    volumes:
+      - ./business.yaml:/app/business.yaml:ro
+      - ./data:/app/data
