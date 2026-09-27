@@ -1,8 +1,35 @@
 import copy
 
+import dotenv
 import pytest
 
+from receptionist import check
 from receptionist.config import BusinessConfig
+
+
+@pytest.fixture(autouse=True)
+def isolate_environment(monkeypatch):
+    """Keep developer credentials and local .env files out of every test."""
+    def skip_dotenv(*args, **kwargs):
+        return False
+
+    monkeypatch.setattr(dotenv, "load_dotenv", skip_dotenv)
+    # Patch each application's imported binding, not just the dotenv source.
+    monkeypatch.setattr(check, "load_dotenv", skip_dotenv)
+    for name in (
+        "OPENAI_API_KEY",
+        "TWILIO_ACCOUNT_SID",
+        "TWILIO_AUTH_TOKEN",
+        "PUBLIC_HOST",
+        "PUBLIC_BASE_URL",
+        "PUBLIC_URL",
+        "VALIDATE_TWILIO_SIGNATURE",
+        "BUSINESS_CONFIG_PATH",
+        "PORT",
+        "LOG_LEVEL",
+    ):
+        monkeypatch.delenv(name, raising=False)
+
 
 RAW_CONFIG = {
     "business": {

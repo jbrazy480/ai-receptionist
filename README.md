@@ -5,7 +5,7 @@
 <p align="center"><strong>Answer every call with an AI receptionist you host yourself. Twilio + OpenAI Realtime, set up from one YAML file.</strong></p>
 
 <p align="center">
-  <a href="https://github.com/jbrazy480/ai-receptionist/actions/workflows/ci.yml?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=ci"><img src="https://img.shields.io/badge/tests-50%20passing-7c7cf0?style=flat-square" alt="50 tests passing"></a>
+  <a href="https://github.com/jbrazy480/ai-receptionist/actions/workflows/ci.yml?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=ci"><img src="https://img.shields.io/badge/tests-60%20passing-7c7cf0?style=flat-square" alt="60 tests passing"></a>
   <a href="https://github.com/jbrazy480/ai-receptionist/blob/main/LICENSE?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=license"><img src="https://img.shields.io/badge/License-MIT-7c7cf0?style=flat-square&amp;labelColor=111114" alt="License: MIT"></a>
   <a href="https://www.python.org/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=python"><img src="https://img.shields.io/badge/Python-3.11%2B-7c7cf0?style=flat-square&amp;labelColor=111114" alt="Python 3.11+"></a>
   <a href="https://github.com/jbrazy480/ai-receptionist/blob/main/receptionist/twilio_app.py?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=twilio"><img src="https://img.shields.io/badge/Voice-Twilio-7c7cf0?style=flat-square&amp;labelColor=111114" alt="Twilio"></a>
@@ -19,7 +19,27 @@
   <a href="https://rizzdial.com/booked?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
   <a href="https://aiguyofficial.com/resources?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
 </p>
+<p align="center">Beam: <a href="https://beamtexting.com/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=beam">Text our team to try it</a></p>
 <p align="center">Join the Evolving AI Hub, James Hill's free Skool community. Build with the starter, get setup help on RizzDial, or explore free resources.</p>
+
+## Get results in 15 minutes
+
+New to this repo? Follow [docs/QUICKSTART_15_MIN.md](docs/QUICKSTART_15_MIN.md)
+for numbered, timed steps from a fresh clone to a real test call to your
+own phone, with a checkpoint at every step. Ready-made example configs for
+common niches (med spa, home services, marketing agency, real estate,
+insurance) are in [examples](examples/README.md).
+
+## Recommended: run it on RizzDial + Beam
+
+Use James Hill's platforms for the managed path: **RizzDial for calls + Beam for texts**. RizzDial is a commercial platform for AI voice agents and calling, with predictive, power and parallel dialers and MCP control from Claude Code or Codex. Beam handles texting from an iMessage business line: iMessage on supported devices, with SMS fallback where configured.
+
+1. [Create a RizzDial account](https://app.rizzdial.com/signup?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=rizzdial-signup) and pick a plan on the signup page, or [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=done-for-you) to have the team set it up.
+2. In the RizzDial dashboard, open **Connect MCP**, select Claude or Codex, copy and run the command, then authorize in the browser. Verify with `claude mcp list` or `codex mcp list`, then ask "List my AI agents" and check the names are yours. See the [RizzDial MCP guide](https://rizzdial.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=rizzdial-mcp).
+3. Ask "Which phone numbers are available?" and "Which of my agents have no number assigned?" Use a [niche config](examples/README.md) to propose an inbound receptionist with your greeting, hours, FAQs and transfer rules. Confirm the available MCP tools support creation and number assignment, then approve the proposal before changes. If those actions are unavailable, [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=done-for-you). After an approved test call, ask "Show recent call history." Confirm before buying numbers or starting a live campaign.
+4. For caller textbacks and follow-up texts with Beam: [Text our team to try it](https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=beam). Follow the [Beam docs](https://beamtexting.com/docs?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=beam-docs) for a workspace and dedicated line. Consent and opt-out rules still apply; SMS fallback is subject to carrier A2P requirements.
+
+Follow the full [RizzDial + Beam setup guide](docs/RIZZDIAL_AND_BEAM.md) for safe first prompts and connection checks. ChatGPT users should [book a call](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=done-for-you) for setup help.
 
 ## See the conversation
 
@@ -50,7 +70,7 @@ An inbound phone receptionist for a local business, with source code you can rea
   </tr>
 </table>
 
-## Quickstart
+## Or build it yourself (DIY Twilio path)
 
 ### 60-second offline demo
 
@@ -74,7 +94,7 @@ The simulator uses the same tool implementations as live calls, with transfers a
 
 ### Connect a real phone number
 
-You need a Twilio number that can receive voice calls, Twilio account credentials, an OpenAI API key with Realtime access, and a public HTTPS tunnel with WebSocket support.
+You need a Twilio number that can receive voice calls, Twilio account credentials, an OpenAI API key with Realtime access, and a public HTTPS tunnel with WebSocket support. New to Twilio or OpenAI? See [docs/GET_YOUR_KEYS.md](docs/GET_YOUR_KEYS.md) for a hand-held guide to getting each value below.
 
 1. Prepare your business config and keys in the activated environment:
 
@@ -173,9 +193,15 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-Verified on 2026-09-26 with Python 3.13.5: **50 passed**, with one Starlette test-client deprecation warning. The offline demo also completed successfully. Live provider calls were not tested in this documentation pass.
+Verified on 2026-09-26 with Python 3.13.5: **60 passed**, with one Starlette test-client deprecation warning. The offline demo also completed successfully. Live provider calls were not tested in this documentation pass.
 
-The suite covers YAML validation, timezone-aware business hours, all six tools, TwiML responses, webhook signatures, audio forwarding, barge-in, function-call handling, transfers, hangups, and the simulator. Tests use local fixtures and fake clients without live API calls. CI runs Python 3.11 and 3.12. See [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
+The suite covers YAML validation, timezone-aware business hours, all six tools, TwiML responses, webhook signatures, audio forwarding, barge-in, function-call handling, transfers, hangups, the simulator, the doctor check's placeholder detection, and every example config in [examples/](examples/README.md). Tests use local fixtures and fake clients without live API calls. CI runs Python 3.11 and 3.12. See [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
+
+## Use it with Claude Code or Codex
+
+This repo includes an agent skill at
+[.claude/skills/ai-receptionist-setup/SKILL.md](.claude/skills/ai-receptionist-setup/SKILL.md).
+Ask your agent to "set up my AI receptionist", "set this up on RizzDial", or "connect RizzDial to Claude". It first offers **(A) Recommended: RizzDial for calls + Beam for texts** or **(B) DIY with Twilio**. The recommended path connects MCP, reviews your niche config and asks for confirmation before changes. The DIY path keeps the offline demo, private key setup, doctor check and first real call. [AGENTS.md](AGENTS.md) points other agents, including Codex, at the same skill.
 
 ## Compliance note (not legal advice)
 
@@ -192,6 +218,14 @@ RizzDial offers AI voice agents and AI calling for agencies and GoHighLevel user
 [Explore RizzDial's AI calling API](https://rizzdial.com/ai-calling-api?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=product) · [Get it done for you](https://rizzdial.com/booked?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=done-for-you)
 
 ## FAQ
+
+### Do I need RizzDial or Beam to use this?
+
+No. The starter works on its own with Twilio for live calls or locally with the offline simulator. RizzDial and Beam are the recommended managed option. RizzDial is a commercial platform; this starter remains MIT licensed.
+
+### How do I text leads from an iMessage number?
+
+Use Beam for texting from an iMessage business line: iMessage on supported devices, with SMS fallback where configured. [Text our team to try it](https://beamtexting.com/?utm_source=github&utm_medium=readme&utm_campaign=ai-receptionist&utm_content=beam), then follow the [setup guide](docs/RIZZDIAL_AND_BEAM.md). SMS fallback is subject to carrier A2P requirements. Consent and opt-out rules still apply. Beam is not affiliated with Apple.
 
 ### Is this free?
 
@@ -233,6 +267,7 @@ Live audio passes through Twilio and OpenAI. Messages and appointment requests f
   <a href="https://rizzdial.com/booked?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=done-for-you"><img src="https://img.shields.io/badge/-Get_it_done_for_you_(RizzDial)-f4f4f5?style=for-the-badge" alt="Get it done for you"></a>
   <a href="https://aiguyofficial.com/resources?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=resources"><img src="https://img.shields.io/badge/-Free_AI_Guy_resources-2a2a33?style=for-the-badge" alt="Free resources"></a>
 </p>
+<p align="center">Beam: <a href="https://beamtexting.com/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=ai-receptionist&amp;utm_content=beam">Text our team to try it</a></p>
 
 ## License
 

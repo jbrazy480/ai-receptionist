@@ -1,0 +1,42 @@
+# Example business.yaml for a marketing agency.
+# Fictional business. Run it with:
+#   python -m receptionist.simulate --config examples/niches/marketing_agency.yaml
+
+business:
+  name: "Brightpath Marketing"
+  timezone: "America/New_York"
+  greeting: "Thanks for calling Brightpath Marketing! I'm the AI receptionist. How can I help you today?"
+  after_hours_message: "Our team is out of the office right now. Leave your name and number, or your email, and someone will follow up during business hours."
+  voice: "alloy"
+
+hours:
+  monday: {open: "09:00", close: "17:00"}
+  tuesday: {open: "09:00", close: "17:00"}
+  wednesday: {open: "09:00", close: "17:00"}
+  thursday: {open: "09:00", close: "17:00"}
+  friday: {open: "09:00", close: "16:00"}
+  saturday: null
+  sunday: null
+
+faqs:
+  - question: "What services do you offer?"
+    answer: "We handle SEO, paid ads, and content for small and mid-size businesses. A strategist can walk you through details in a call."
+  - question: "Do you offer a free consultation?"
+    answer: "Yes, new prospects get a free 30-minute strategy call. Ask to book an appointment and we'll get you scheduled."
+  - question: "Do you work with businesses outside your local area?"
+    answer: "Yes, most of our client work is done remotely, so location isn't a barrier."
+  - question: "How do I see examples of your work?"
+    answer: "We can email a portfolio link after this call. Leave a message with your email and we'll send it over."
+
+departments:
+  - name: "Sales"
+    phone_number: "+12125550171"
+  - name: "Client Support"
+    phone_number: "+12125550172"
+
+booking:
+  webhook_url: null
+
+messages:
+  file_path: "data/messages.jsonl"
+  webhook_url: null

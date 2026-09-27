@@ -1,0 +1,42 @@
+# Example business.yaml for a home services company (HVAC, plumbing, electrical).
+# Fictional business. Run it with:
+#   python -m receptionist.simulate --config examples/niches/home_services.yaml
+
+business:
+  name: "Anchor Home Services"
+  timezone: "America/Chicago"
+  greeting: "Thanks for calling Anchor Home Services! I'm the AI receptionist. How can I help you today?"
+  after_hours_message: "Our office is closed right now. For a real emergency, stay on the line for our after-hours dispatcher. Otherwise, leave your name and number and we'll call you back."
+  voice: "alloy"
+
+hours:
+  monday: {open: "07:00", close: "18:00"}
+  tuesday: {open: "07:00", close: "18:00"}
+  wednesday: {open: "07:00", close: "18:00"}
+  thursday: {open: "07:00", close: "18:00"}
+  friday: {open: "07:00", close: "18:00"}
+  saturday: {open: "08:00", close: "14:00"}
+  sunday: null
+
+faqs:
+  - question: "Do you offer emergency service?"
+    answer: "Yes, we offer emergency dispatch for active leaks, no heat, and no AC. Ask to be transferred to dispatch."
+  - question: "Do you give free estimates?"
+    answer: "Yes, estimates are free for most jobs. Repairs found during a paid diagnostic visit have their own quote."
+  - question: "What areas do you serve?"
+    answer: "We serve the greater metro area and surrounding suburbs. Give us your zip code and we can confirm."
+  - question: "Are your technicians licensed?"
+    answer: "Yes, all of our technicians are licensed and insured."
+
+departments:
+  - name: "Dispatch"
+    phone_number: "+13125550156"
+  - name: "Billing"
+    phone_number: "+13125550157"
+
+booking:
+  webhook_url: null
+
+messages:
+  file_path: "data/messages.jsonl"
+  webhook_url: null

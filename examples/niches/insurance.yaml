@@ -1,0 +1,42 @@
+# Example business.yaml for an independent insurance agency.
+# Fictional business. Run it with:
+#   python -m receptionist.simulate --config examples/niches/insurance.yaml
+
+business:
+  name: "Northgate Insurance Group"
+  timezone: "America/Phoenix"
+  greeting: "Thanks for calling Northgate Insurance Group! I'm the AI receptionist. How can I help you today?"
+  after_hours_message: "Our office is closed right now. For a claim in progress, stay on the line for our after-hours claims line. Otherwise, leave your name and number."
+  voice: "alloy"
+
+hours:
+  monday: {open: "08:00", close: "17:00"}
+  tuesday: {open: "08:00", close: "17:00"}
+  wednesday: {open: "08:00", close: "17:00"}
+  thursday: {open: "08:00", close: "17:00"}
+  friday: {open: "08:00", close: "17:00"}
+  saturday: null
+  sunday: null
+
+faqs:
+  - question: "What kinds of insurance do you sell?"
+    answer: "We write home, auto, and small business policies through several carriers, so we can compare options for you."
+  - question: "How do I file a claim?"
+    answer: "For an active claim, ask to be transferred to Claims. You can also file directly with your carrier using the number on your policy card."
+  - question: "Can you give me a quote over the phone?"
+    answer: "We can start a quote over the phone, but an agent will need some details about your property or vehicle first. We can also take a message and have an agent call you back."
+  - question: "Do you only sell one company's policies?"
+    answer: "No, we're an independent agency, so we can shop your policy across multiple carriers."
+
+departments:
+  - name: "Claims"
+    phone_number: "+16025550196"
+  - name: "New Policies"
+    phone_number: "+16025550197"
+
+booking:
+  webhook_url: null
+
+messages:
+  file_path: "data/messages.jsonl"
+  webhook_url: null

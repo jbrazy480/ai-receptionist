@@ -1,0 +1,42 @@
+# Example business.yaml for a real estate brokerage.
+# Fictional business. Run it with:
+#   python -m receptionist.simulate --config examples/niches/real_estate.yaml
+
+business:
+  name: "Cornerstone Realty Group"
+  timezone: "America/Denver"
+  greeting: "Thanks for calling Cornerstone Realty Group! I'm the AI receptionist. How can I help you today?"
+  after_hours_message: "Our office is closed right now. Leave your name and number and one of our agents will call you back."
+  voice: "alloy"
+
+hours:
+  monday: {open: "08:30", close: "17:30"}
+  tuesday: {open: "08:30", close: "17:30"}
+  wednesday: {open: "08:30", close: "17:30"}
+  thursday: {open: "08:30", close: "17:30"}
+  friday: {open: "08:30", close: "17:30"}
+  saturday: {open: "10:00", close: "14:00"}
+  sunday: null
+
+faqs:
+  - question: "Do you handle rentals or only home sales?"
+    answer: "We handle both home sales and property management for rentals. Ask to be transferred to Leasing for rental questions."
+  - question: "Can you help me get pre-approved for a mortgage?"
+    answer: "We aren't a lender, but we can connect you with a few local mortgage partners we work with."
+  - question: "Do you charge for a home valuation?"
+    answer: "No, a home valuation from one of our agents is free with no obligation."
+  - question: "Can I schedule a showing?"
+    answer: "Yes, tell us the listing address and a good time and we'll pass it to the listing agent to confirm."
+
+departments:
+  - name: "Listings"
+    phone_number: "+13035550187"
+  - name: "Leasing"
+    phone_number: "+13035550188"
+
+booking:
+  webhook_url: null
+
+messages:
+  file_path: "data/messages.jsonl"
+  webhook_url: null

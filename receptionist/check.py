@@ -20,9 +20,19 @@ REQUIRED_FOR_LIVE_CALLS = [
     ("TWILIO_AUTH_TOKEN", "Twilio auth token, also used for webhook signature validation"),
 ]
 
+# Exact placeholder values shipped in .env.example. A user who runs
+# `cp .env.example .env` without editing it should not see [OK].
+PLACEHOLDER_VALUES = {
+    "OPENAI_API_KEY": "sk-placeholder",
+    "TWILIO_ACCOUNT_SID": "ACplaceholder",
+    "TWILIO_AUTH_TOKEN": "placeholder",
+}
+
 RECOMMENDED = [
     ("PUBLIC_HOST", "Public hostname (ngrok/cloudflared) Twilio streams audio to"),
 ]
+
+GET_YOUR_KEYS_DOC = "docs/GET_YOUR_KEYS.md"
 
 
 def main() -> None:
@@ -48,9 +58,14 @@ def main() -> None:
     print("Environment variables required for live phone calls:")
     for var, description in REQUIRED_FOR_LIVE_CALLS:
         value = os.getenv(var)
-        status = "OK" if value else "MISSING"
         if not value:
+            status = "MISSING"
             ok = False
+        elif value == PLACEHOLDER_VALUES.get(var):
+            status = "PLACEHOLDER"
+            ok = False
+        else:
+            status = "OK"
         print(f"  [{status}] {var}: {description}")
 
     print()
@@ -68,7 +83,9 @@ def main() -> None:
     if ok:
         print("Everything needed for live calls looks present.")
     else:
-        print("Some items are missing above. The offline simulator will still work without them:")
+        print("Some items are missing or still set to placeholder values above.")
+        print(f"See {GET_YOUR_KEYS_DOC} for step by step help getting real values.")
+        print("The offline simulator will still work without them:")
         print("  python -m receptionist.simulate")
         sys.exit(1)
 
